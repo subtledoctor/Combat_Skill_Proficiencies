@@ -1,0 +1,107 @@
+BACKUP ~weidu_external/backup/Combat_Skill_Proficiencies~
+AUTHOR ~SubtleD~
+
+VERSION ~v1.0~
+
+ALWAYS
+
+// -->	INCLUDE ~Combat_Skill_Proficiencies/lib/joinable_npcs.tpa~
+
+	INCLUDE ~Combat_Skill_Proficiencies/lib/misc_functions.tpa~
+
+// -->	INCLUDE ~Combat_Skill_Proficiencies/lib/add_spell_header.tpa~
+
+	INCLUDE ~Combat_Skill_Proficiencies/lib/fl#add_kit_ee.tpa~
+
+	LAF fix_kitlist_missing_ids END
+
+END
+
+LANGUAGE
+  ~English~
+  ~english~
+  ~Combat_Skill_Proficiencies/lang/en_US/setup.tra~
+LANGUAGE
+  ~Polski (Translation by etamin)~
+  ~polish~
+  ~Combat_Skill_Proficiencies/lang/en_US/setup.tra~
+  ~Combat_Skill_Proficiencies/lang/pl_PL/setup.tra~
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//							PROFICIENCY OVERHAULS
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+BEGIN @10 // WPO pip values
+DESIGNATED 10
+LABEL ~D5_REVISED_PROFICIENCIES~
+//SUBCOMPONENT @120
+FORBID_COMPONENT ~Combat_Skill_Proficiencies.tp2~ ~50~ @3
+REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee eet iwdee~) @1
+
+INCLUDE ~Combat_Skill_Proficiencies/components/weapon_categories.tpa~
+INCLUDE ~Combat_Skill_Proficiencies/components/proficiency_overhaul.tpa~
+
+LAF revise_proficiency_system END
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+BEGIN @30 // combat skills
+DESIGNATED 30
+LABEL ~D5_COMBAT_SKILLS~
+FORBID_COMPONENT ~might_and_guile.tp2~ ~200~ @3
+FORBID_COMPONENT ~Combat_Skill_Proficiencies.tp2~ ~50~ @3
+REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @1
+
+INCLUDE ~Combat_Skill_Proficiencies/components/weapon_categories.tpa~
+INCLUDE ~Combat_Skill_Proficiencies/components/combat_skills.tpa~
+
+LAF combat_skills_system END
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+BEGIN @50 // combine profs
+DESIGNATED 50
+LABEL ~D5_COMBINED_WEAPON_CATEGORIES~
+FORBID_COMPONENT ~Combat_Skill_Proficiencies.tp2~ ~10~ @3
+FORBID_COMPONENT ~Combat_Skill_Proficiencies.tp2~ ~30~ @3
+
+INCLUDE ~Combat_Skill_Proficiencies/components/weapon_categories.tpa~
+
+LAF revise_weapon_categories END
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+BEGIN @70 // change styles
+DESIGNATED 70
+LABEL ~D5_REVISED_WEAPON_STYLES~
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
+
+INCLUDE ~Combat_Skill_Proficiencies/components/fighting_styles.tpa~
+
+LAF revise_weapon_styles END
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+BEGIN @90 // wspatck for all
+DESIGNATED 90
+LABEL ~D5_EE_WSPATCK_FOR_ALL~
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
+
+INCLUDE ~Combat_Skill_Proficiencies/components/apr_on_spec.tpa~
+
+LAF apr_on_spec END
+//__________________________________________________________________________________
+
+
