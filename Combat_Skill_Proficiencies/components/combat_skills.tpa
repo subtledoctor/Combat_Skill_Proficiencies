@@ -3282,6 +3282,7 @@ END
 // d5csi7 = Glitterdust		= spwi224
 // d5csi8 = Sanctuary		= sppr109
 // d5csi9 = Shadowstep		= spsd02
+// d5csi0 = Cantrips		= 
 
 //__________________________________________________________________________________
 
@@ -3404,6 +3405,28 @@ ACTION_FOR_EACH mag_spl IN ~2~ ~3~ ~4~ ~5~ ~6~ ~7~ ~8~ ~9~ BEGIN			//		set up ma
 	WRITE_EVALUATED_ASCII 0xa8 ~D5CSI%mag_spl%~ #32
 	WRITE_LONG 0x90 1
 	WRITE_EVALUATED_ASCII 0x94 ~d5csi%mag_spl%~ #8
+
+END
+
+
+//use cantrips________________________________________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5ctp00.spl~) BEGIN
+
+  COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csi0l.spl~
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 171 target = 1 parameter2 = 0 timing = 1 duration = 0 STR_VAR resource = ~d5ctp01~ END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 9 STR_VAR resource = ~d5csi0~ END
+
+  CREATE EFF  ~d5csi1~
+	WRITE_LONG 0x10 187
+	WRITE_LONG 0x14 1
+	WRITE_LONG 0x1c 1
+	WRITE_LONG 0x20 0
+	WRITE_LONG 0x24 9
+	WRITE_SHORT 0x2c 100
+	WRITE_EVALUATED_ASCII 0xa8 ~D5CSI0~ #32
+	WRITE_LONG 0x90 1
+	WRITE_EVALUATED_ASCII 0x94 ~d5csi0~ #8
 
 END
 
@@ -4079,6 +4102,23 @@ END
 >>>>>>>>
 
 COPY ~d5/d5cs110.d~ ~weidu_external/%MOD_FOLDER%/compile/d5cs110.d~
+  PATCH_IF (FILE_EXISTS_IN_GAME ~d5ctp00.spl~) BEGIN
+    REPLACE_TEXTUALLY 
+~~~~~GOTO d5cs110_9.+$~~~~~
+~~~~~GOTO d5cs110_10     // Shadowstep
+ IF ~GlobalGT("D5CS110J","GLOBAL",0) OR(2) Global("D5CSI0","LOCALS",0) Global("D5CSI0","LOCALS",2)~ THEN REPLY @12389 GOTO d5cs110_10     // Cantrips %WNL%~~~~~
+  END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5ctp00.spl~) BEGIN
+  APPEND_OUTER ~weidu_external/%MOD_FOLDER%/compile/d5cs110.d~
+~~~~~
+IF ~~ THEN BEGIN d5cs110_10 										// cantrips
+%WNL% SAY @12390
+%WNL% IF ~~ THEN REPLY @12302 DO ~IncrementGlobal("D5CSI0","LOCALS",1)~ DO ~ApplySpellRES("D5CSI0L",Myself)~ EXIT 
+%WNL% IF ~~ THEN REPLY @12303 GOTO d5cs110
+%WNL%END
+~~~~~
+END
 
 COMPILE ~weidu_external/%MOD_FOLDER%/compile/d5cs110.d~
 
@@ -4178,6 +4218,7 @@ THEN
 	SetGlobal("D5CS110G","GLOBAL",0)
 	SetGlobal("D5CS110H","GLOBAL",0)
 	SetGlobal("D5CS110I","GLOBAL",0)
+	SetGlobal("D5CS110J","GLOBAL",0)
 	SetNumTimesTalkedTo(0)
 	ApplySpellRES("D5CS000",LastSummonerOf(Myself))
 	DestroySelf() 
