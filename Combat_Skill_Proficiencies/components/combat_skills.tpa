@@ -5546,8 +5546,11 @@ OUTER_SET script_higher_levels = 1
 OUTER_SPRINT class_dlgs ~all~
 */
 
-LAF PROF_DIALOGUE INT_VAR script_level_one = 1 script_higher_levels = 1 STR_VAR prof_script_name = ~d5cspra~ class_dlgs = ~all~ END
+LAF PROF_DIALOGUE INT_VAR script_level_one = 1 script_higher_levels = 1 STR_VAR prof_script_name = ~d5cspr~ class_dlgs = ~all~ END
 
+COPY_EXISTING ~d5cspr.spl~ ~override/d5cspra.spl~
+  LPF ALTER_EFFECT INT_VAR match_opcode = 172 STR_VAR resource = ~d5cspra~ END
+IF_EXISTS
 
 //joinable NPCs______________________________________________________________________
 //
@@ -5724,7 +5727,7 @@ ACTION_PHP_EACH JOINABLE_NPC_ARRAY AS cre => dv BEGIN
   BUT_ONLY
 END
 
-COPY_EXISTING ~d5cspra.bcs~ ~override~
+COPY_EXISTING ~d5cspr.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
     REPLACE_TEXTUALLY ~DestroySelf()~
 ~ActionOverride(LastSummonerOf(Myself),ApplySpellRES("D5CS003",Myself))

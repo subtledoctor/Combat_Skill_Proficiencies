@@ -1055,11 +1055,11 @@ OUTER_SET script_higher_levels = 0
 OUTER_SPRINT class_dlgs ~all~
 */
 
-LAF PROF_DIALOGUE INT_VAR script_level_one = 0 script_higher_levels = 0 STR_VAR prof_script_name = ~d5prfxa~ class_dlgs = ~all~ END
+LAF PROF_DIALOGUE INT_VAR script_level_one = 0 script_higher_levels = 0 STR_VAR prof_script_name = ~d5prfx~ class_dlgs = ~all~ END
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5prfxa.spl~) BEGIN
-  ACTION_FOR_EACH letr IN ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ ~j~ ~k~ BEGIN
-    COPY_EXISTING ~d5prfxa.spl~ ~override/d5prfx%letr%.spl~
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5prfx.spl~) BEGIN
+  ACTION_FOR_EACH letr IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ ~j~ ~k~ BEGIN
+    COPY_EXISTING ~d5prfx.spl~ ~override/d5prfx%letr%.spl~
       LPF ALTER_EFFECT INT_VAR match_opcode = 172 STR_VAR resource = EVAL ~d5prfx%letr%~ END
   END
 END
