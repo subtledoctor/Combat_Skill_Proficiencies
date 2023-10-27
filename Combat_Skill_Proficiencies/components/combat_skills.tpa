@@ -161,7 +161,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-cdtweaks.tp2~ ~2161~) OR (MOD_IS_INSTALLED ~s
 
 //handle creatures___________________________________________________________________
 //
- COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
   LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 107 parameter2 = 89 END
   LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 106 parameter2 = 90 END
   LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 105 parameter2 = 91 END
@@ -228,6 +228,29 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-cdtweaks.tp2~ ~2161~) AND !(MOD_IS_INSTALLED
   LAF revise_weapon_categories END
 END
 //__________________________________________________________________________________
+
+
+//fix stat 109 weapons_______________________________________________________________
+//
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  GET_OFFSET_ARRAY eqfx_array ITM_V10_GEN_EFFECTS
+  PHP_EACH eqfx_array AS fx => off BEGIN
+    READ_SHORT off opcode
+    PATCH_IF (opcode = 233) BEGIN
+      READ_SHORT (off + 0x08) param2
+      PATCH_IF (param2 = 109) BEGIN
+        SPRINT $109_itms(~%SOURCE_RES%~) ~1~
+      END
+    END
+  END
+BUT_ONLY
+
+ACTION_PHP_EACH 109_itms AS itm => one BEGIN
+  COPY_EXISTING ~%itm%.itm~ ~override~
+    LPF DELETE_EFFECT INT_VAR check_headers = 0 check_globals = 1 match_opcode = 233 match_parameter2 = 109 match_timing = 2 END
+  IF_EXISTS
+END
+//___________________________________________________________________________________
 
 
 /*
