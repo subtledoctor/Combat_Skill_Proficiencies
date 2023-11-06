@@ -733,6 +733,8 @@ If you also have a tome enabling you to change your class and kit, you should de
 @12386  = ~This ability allows the use of the spell 'Sanctuary' once per day.~
 @12387  = ~Shadowstep~
 @12388  = ~This ability allows the use of the spell 'Shadowstep' once per day.~
+@12389  = ~Cantrips~
+@12390  = ~This ability allows the preparation of one cantrip each day.~
 @12391  = ~Grease Jar~
 @12392  = ~Grease Jar: this ability mimics the effects of the wizard spell Grease. Everyone in the area of effect finds it difficult to stay standing and has their movement rate reduced.~
 @12393  = ~Smoke Bomb~
