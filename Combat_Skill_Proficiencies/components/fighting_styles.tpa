@@ -853,12 +853,14 @@ COPY_EXISTING ~d5_sns1.spl~ ~override~
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 16 parameter2 = 138 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 1 parameter2 = 138 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 0 parameter2 = 74 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END
 COPY ~%MOD_FOLDER%/data/profs/d5_sns2.spl~ ~override~						// knockback/damage/etc.
   LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5_sns% END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 205 parameter2 = 105 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END 
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 0 parameter2 = 142 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 0 parameter2 = 49 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 235 match_duration = 2 duration = 1 END
 /* don't need, I think
 CREATE SPL ~d5_sns3~
 COPY_EXISTING ~d5_sns3.spl~ ~override~

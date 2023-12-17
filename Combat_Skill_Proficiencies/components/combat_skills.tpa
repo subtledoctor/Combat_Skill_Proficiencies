@@ -513,10 +513,10 @@ BUT_ONLY
 /* 
 need to finalize what the categories will be
 
- - 104 = melee thac0	--> 107
- - 105 = dodge			--> 106
- - 106 = backstab		--> 104
- - 107 = set snares		--> 105
+ - 104 = backstab	
+ - 105 = set snares	
+ - 106 = dodge		
+ - 107 = melee thac0
  - 108 = ranged thac0
  - 109 = hurled thac0 *
  - 111 = 2HW
@@ -5107,11 +5107,13 @@ ideas for individual kits:
  /...make new version with assassins only at x2
  /...assassins can get 6 pips, other thieves only 4
  /...apply subspell increasing backstab prof by 1 (and 206 vs. the subspell)
+ // *****...just give a backstab bonus
 
  - swashbucklers:
  /...remove AC bonuses (leave thac0 bonuses)
  /...swashies can get 6 pips in dodge, others only 2
  /...apply subspell increasing dodge prof by 1 (and 206 vs. the subspell)
+ // *****...no, just give an AC bonus
  /...and MnG corsair
 
  - shadowdancer: 
@@ -5135,10 +5137,13 @@ ideas for individual kits:
  - archers:
  /...remove ranged thac0 bonuses from CLAB
  /...apply subspell increasing accuracy prof by 1 (and 206 vs. the subspell)
+ // *****...no, just give a ranged thac0 bonus
+ // *****...have ranged accuracy give bonus damage as well as thaco...?
 
 more fun ideas,  things to do with cs000:
  /- halflings: slings < 2, increase slings by 1
  /- halflings: set hurling to 2
+ // *****...SET
 */
 
 /*
@@ -5419,8 +5424,8 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs001.spl~
   END
   PATCH_IF (VARIABLE_IS_SET %d5_swash_code%) BEGIN
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa1~ END
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa2~ END
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa3~ END
+//    LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa2~ END
+//    LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa3~ END
   END
 //assassin...
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 0x400a parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csass1~ END
@@ -5439,7 +5444,6 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs001.spl~
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cshal1.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 2 parameter2 = 109 timing = 9 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (101 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cshal1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csran1.spl~
@@ -5448,11 +5452,13 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csran1.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csran1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csarc1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (108 + (0x10000 * 1)) timing = 9 END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (108 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 167 parameter1 = 1 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 286 parameter1 = 1 parameter2 = 0 timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csarc1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csear1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (102 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 2 parameter2 = 102 timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csear1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csbar1.spl~
@@ -5464,10 +5470,13 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cswsl1.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cswsl1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csswa1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (104 + (0x10000 * 1)) timing = 9 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (105 + (0x10000 * 1)) timing = 9 END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (106 + (0x10000 * 1)) timing = 9 END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (107 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 0 parameter1 = 1 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 284 parameter1 = 1 parameter2 = 0 timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csswa1~ END
 
+/*
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csswa2.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 1 parameter1 = 2 parameter2 = %prof_113_beq% timing = 0 duration = 6 STR_VAR resource = ~d5cswa2~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (113 + (0x10000 * 1)) timing = 9 END
@@ -5477,9 +5486,11 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csswa3.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 1 parameter1 = 2 parameter2 = %prof_114_beq% timing = 0 duration = 6 STR_VAR resource = ~d5cswa3~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (114 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csswa3~ END
+*/
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csass1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (106 + (0x10000 * 1)) timing = 9 END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (104 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 263 parameter1 = 1 parameter2 = 0 timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csass1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csshd1.spl~
