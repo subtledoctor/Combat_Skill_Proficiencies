@@ -741,8 +741,16 @@ COPY_EXISTING ~backstab.2da~ ~override~
   COUNT_2DA_COLS cols
   COUNT_2DA_ROWS cols rows
   FOR (row = 0; row < rows; ++row) BEGIN
-    FOR (col = 1; col < cols; ++col) BEGIN
-      SET_2DA_ENTRY row col cols 1
+    READ_2DA_ENTRY row 0 cols kitname
+    PATCH_IF !(~%kitname%~ STRING_EQUAL_CASE ~ASSASIN~) BEGIN
+      FOR (col = 1; col < cols; ++col) BEGIN
+        SET_2DA_ENTRY row col cols 1
+      END
+    END
+    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~ASSASIN~) BEGIN
+      FOR (col = 1; col < cols; ++col) BEGIN
+        SET_2DA_ENTRY row col cols 2
+      END
     END
   END
 IF_EXISTS BUT_ONLY
@@ -5107,13 +5115,13 @@ ideas for individual kits:
  /...make new version with assassins only at x2
  /...assassins can get 6 pips, other thieves only 4
  /...apply subspell increasing backstab prof by 1 (and 206 vs. the subspell)
- // *****...just give a backstab bonus
+ // ...actually just do this in backstab.2da
 
  - swashbucklers:
  /...remove AC bonuses (leave thac0 bonuses)
  /...swashies can get 6 pips in dodge, others only 2
  /...apply subspell increasing dodge prof by 1 (and 206 vs. the subspell)
- // *****...no, just give an AC bonus
+ // ...no, just give an AC bonus
  /...and MnG corsair
 
  - shadowdancer: 
@@ -5143,7 +5151,6 @@ ideas for individual kits:
 more fun ideas,  things to do with cs000:
  /- halflings: slings < 2, increase slings by 1
  /- halflings: set hurling to 2
- // *****...SET
 */
 
 /*
@@ -5428,7 +5435,8 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs001.spl~
 //    LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa3~ END
   END
 //assassin...
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 0x400a parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csass1~ END
+//...actually no, already done in backstab.2da, see line 739 above
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 0x400a parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csass1~ END
 //shadowdancer...
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 0x4021 parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csshd1~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 0x4021 parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5cix1a~ END
