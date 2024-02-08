@@ -1025,40 +1025,12 @@ END
 //DIALOGUE-BASED PROFICIENCIES______________________________________________________
 //
 
-/*
-// ***** delete existing, start anew
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5__dialprof.d5~) BEGIN
-  DELETE ~override/d5__dialprof.d5~
-  DELETE ~override/d5profx.bcs~
-  DELETE ~override/d5profx.dlg~
-  DELETE ~override/d5profy.bcs~
-  DELETE ~override/d5profy.dlg~
-  DELETE ~weidu_external/dialprof/d5profx.baf~
-  DELETE ~weidu_external/dialprof/d5profx.d~
-  DELETE ~weidu_external/dialprof/d5profy.baf~
-  DELETE ~weidu_external/dialprof/d5profy.d~
-*/
-
-/* use new dialprof
-//ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__dialprof.d5~) BEGIN
-  INCLUDE ~%MOD_FOLDER%/lib/weapprof_dialogue.tpa~
-//  LAM SET_UP_PROF_DIALOGUES
-//END
-*/
-
 // ***** need to copy the profx dialogue and make a version for warriors with their profsmax
 // ...and a version for nonwarriors with their profsmax
 // ...and then modify profx bcs to direct each one to its proper dialogue
 // ...later
 
 INCLUDE ~%MOD_FOLDER%/lib/dialprof.tpa~
-
-/*
-OUTER_SPRINT prof_script_name ~d5prfy~
-OUTER_SET script_level_one = 0
-OUTER_SET script_higher_levels = 0
-OUTER_SPRINT class_dlgs ~all~
-*/
 
 LAF PROF_DIALOGUE INT_VAR script_level_one = 0 script_higher_levels = 0 STR_VAR prof_script_name = ~d5prfx~ class_dlgs = ~all~ END
 
@@ -1068,7 +1040,6 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5prfx.spl~) BEGIN
       LPF ALTER_EFFECT INT_VAR match_opcode = 172 STR_VAR resource = EVAL ~d5prfx%letr%~ END
   END
 END
-
 //__________________________________________________________________________________
 
 

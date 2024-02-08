@@ -2047,12 +2047,9 @@ EDIT - no, change this to mimic the way MnG bard songs work!
 
 OUTER_SET parry_string = RESOLVE_STR_REF (~Parry~)
 OUTER_SET deflect_string = RESOLVE_STR_REF (~Deflect~)
-ACTION_IF !(FILE_EXISTS_IN_GAME ~7eyes.2da~) BEGIN
-  COPY ~%MOD_FOLDER%/data/misc/7eyes.2da~ ~override~
-END
 
 ACTION_IF !(FILE_EXISTS_IN_GAME ~7eyes.2da~) BEGIN
-  COPY ~%MOD_FOLDER%/data/csp/7eyes.2da~ ~override~
+  COPY ~%MOD_FOLDER%/data/misc/7eyes.2da~ ~override~
 END
 
 COPY ~%MOD_FOLDER%/data/csp/d5cx115.bam~ ~override~
@@ -2378,6 +2375,9 @@ OUTER_SET parrying_state = %new_state_ind%
 APPEND ~7eyes.2da~ ~D5_PARRYING  %parrying_state%       %parry_string%       12*0         12*0x100000 12*0x1000000 *            *            *          *          *          * ~ UNLESS ~D5_PARRYING~
 
 COPY_EXISTING ~7eyes.2da~ ~override~
+  LPF 2DA_MISSING_COLS END
+
+COPY_EXISTING ~7eyes.2da~ ~override~
   COUNT_2DA_ROWS 1 rows
   FOR (row = 1; row < rows; ++row) BEGIN
 	READ_2DA_ENTRY row 0 1 tag
@@ -2437,6 +2437,9 @@ LAF d5_resolve_state STR_VAR new_state_id = ~D5_SNAREARROW~ RET new_state_ind EN
 OUTER_SET missile_snaring_state = %new_state_ind%
 
 APPEND ~7eyes.2da~ ~SNARE_ARROW  %missile_snaring_state%       %deflect_string%      12*0x800000 *           *           *            *            *          *          *          * ~ UNLESS ~SNARE_ARROW~
+
+COPY_EXISTING ~7eyes.2da~ ~override~
+  LPF 2DA_MISSING_COLS END
 
 COPY_EXISTING ~7eyes.2da~ ~override~
   COUNT_2DA_ROWS 1 rows
@@ -5997,13 +6000,6 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
 	REPLACE_TEXTUALLY ~GA_D5FTPRX~ ~AP_D5BSFO1~
   BUT_ONLY
 
-/*
-  OUTER_SPRINT prof_script_name ~d5bsfo~
-  OUTER_SET script_level_one = 0
-  OUTER_SET script_higher_levels = 0
-  OUTER_SPRINT class_dlgs ~fi_ma~
-*/
-
   LAF PROF_DIALOGUE INT_VAR script_level_one = 1 script_higher_levels = 1 ignore_max = 1 STR_VAR prof_script_name = ~d5bsfoa~ class_dlgs = ~fi_ma~ END
   
 /*
@@ -6121,13 +6117,6 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5pazwpa.dlg~) BEGIN	//	paladin archetype zealot
     DELETE "override/d5pazwpa.dlg"
   END
 
-/*
-  OUTER_SPRINT prof_script_name ~d5pazw~
-  OUTER_SET script_level_one = 0
-  OUTER_SET script_higher_levels = 0
-  OUTER_SPRINT class_dlgs ~pa~
-*/
-
   LAF PROF_DIALOGUE INT_VAR script_level_one = 1 script_higher_levels = 1 ignore_max = 1 STR_VAR prof_script_name = ~d5pazw~ class_dlgs = ~pa~ END
 
 // ***** add an option and do this directly from the dialprof function
@@ -6167,19 +6156,12 @@ END	//	end if paladin archetypes installed
 /* this may not be necessary at all
 //MnG samurai weapon mastery_________________________________________________________
 //
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5kifofi.dlg~) BEGIN	//	paladin archetype zealot weapon mastery
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5kifofi.dlg~) BEGIN	//	samurai weapon mastery
 
 /* no need to re-do it, just patch the .dlg
   ACTION_IF FILE_EXISTS "override/d5kifofi.dlg" BEGIN
     DELETE "override/d5kifofi.dlg"
   END
-
-/*
-  OUTER_SPRINT prof_script_name ~d5kifo~
-  OUTER_SET script_level_one = 0
-  OUTER_SET script_higher_levels = 0
-  OUTER_SPRINT class_dlgs ~fi~
-*/
 
   LAF PROF_DIALOGUE INT_VAR script_level_one = 1 script_higher_levels = 1 STR_VAR prof_script_name = ~d5kifoa~ class_dlgs = ~fi~ END
 */
@@ -6215,6 +6197,20 @@ END	//	end if samurai installed
 
 //__________________________________________________________________________________
 */
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5prfxa.spl~) BEGIN	//	WPO extra NPC profs
+
+  ACTION_FOR_EACH dlg_letr IN ~B~ ~C~ ~D~ ~F~ ~H~ ~K~ ~P~ ~R~ ~S~ ~T~ ~W~ BEGIN
+    ACTION_IF FILE_EXISTS "override/d5prfx%dlg_letr%.dlg" BEGIN
+      DELETE "override/d5prfx%dlg_letr%.dlg"
+    END
+  END
+
+  LAF PROF_DIALOGUE INT_VAR script_level_one = 0 script_higher_levels = 0 STR_VAR prof_script_name = ~d5prfx~ class_dlgs = ~all~ END
+
+END	//	end if WPO extra NPC profs present
+
+//__________________________________________________________________________________
 
 
 END // end function
