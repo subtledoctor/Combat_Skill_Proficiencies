@@ -26,6 +26,11 @@ LANGUAGE
   ~polish~
   ~Combat_Skill_Proficiencies/lang/en_US/setup.tra~
   ~Combat_Skill_Proficiencies/lang/pl_PL/setup.tra~
+LANGUAGE
+  ~Francais~
+  ~french~
+  ~Combat_Skill_Proficiencies/lang/en_US/setup.tra~
+  ~Combat_Skill_Proficiencies/lang/fr_FR/setup.tra~
 
 
 //__________________________________________________________________________________
