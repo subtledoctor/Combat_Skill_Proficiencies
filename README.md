@@ -18,8 +18,7 @@
 </div>
 <h2>Overview</h2>
 <div class="section">
-  <p>This mod is all about improving gameplay.  While I love mods that bring the game closer to PnP, like Rogue Rebalancing and aTweaks, BG is a single-player computer game.  If tweaking a rule makes this specific game more fun, then it's a good tweak, PnP be damned.  Consider this mod as a collection of 'house rules' specific to the BG campaign. Every choice has been made with an eye to the particular gameplay mechanics of BG2 and the EEs.</p>
-  <p>I call this a "post-hac tweak mod" because it is designed to be installed on top of - not instead of - all the other great mods out there.  I began with a BGT game with over 75 mods; they made the game great, but a few things still irked me, like awkwardly fourth-wall-breaking weapon names. (<i>Holy sword +6? Really? That's a punchline, not a game feature.</i>) </p>
+  <p>This mod is all about improving gameplay.  While I love mods that bring the game closer to PnP, like Rogue Rebalancing and aTweaks, BG is a single-player computer game.  If tweaking a rule makes this specific game more fun, then it's a good tweak, PnP be damned.  Consider this mod as a collection of 'house rules' specific to the proficiency systems in Baldur's Gate campaigns. Every choice has been made with an eye to the particular gameplay mechanics of BG2 and the EEs.</p>
   <p><strong><u>Everything is completely optional.  You can use as many or as few of the mod components as you want.  There is no 'core' component; use what you like, ignore what you don't.</u></strong> </p>
 </div>
 <h2>Contents</h2>
@@ -27,7 +26,7 @@
   <h4 class="subheader">Component 10: </h4>
   <div class="section">
     <p><strong><em>Weapon Proficiency Overhaul (WPO): Overall Overhaul</em></strong></p>
-      <p><b>INSTALL NOTE:</b> if you install this component, then component #121 (Weapon Category Combination) will also be installed automatically. </p>
+      <p><b>INSTALL NOTE:</b> if you choose to install this component, it will also, of necessity, install component #50 (Weapon Category Combination).</p>
       <p>This component can be considered a convenience tweak; it will give most classes natably more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
       <p>Clubs are truly universal, simple weapons: everyone can use them. Crossbows are usable by everyone except druids and Beastmasters.</p>
@@ -83,7 +82,7 @@
         <li> Reckless Attack: in this posture, attacks can be made faster (1/2 extra attack per round), but all attacks incur a 3-point penalty to attack rolls.</li>
         <li> Fighting Dirty: this posture involves the use of dirty tricks to gain advantage over enemies. Once each round the nearest attacker must save vs. breath weapon or be briefly tripped, blinded or weakened.</li>
         <li> Parrying: this posture gives a 50% chance to block the physical damage (slashing, piercing, or crushing) of one successful attack. Only one attack can be parried in this way each round.</li>
-        <li> Missil Snaring: in this posture a character can block one otherwise-successful missile attack each round. (Elemental damage attached to the attack will still affect the character, however.)</li>
+        <li> Missile Snaring: in this posture a character can block one otherwise-successful missile attack each round. (Elemental damage attached to the attack will still affect the character, however.)</li>
         <li> Spell Evasion: when in this posture a character can make an extra save vs. breath weapon in order to evade the effects of certain targeted and wide-area spells, such as Magic Missile and Fireball.</li>
       </ul>
     <p><b>Physical Fitness:</b> These are ways a character can improve their physical capabilities.
@@ -192,7 +191,6 @@
   <h4 class="subheader">Component 70: </h4>
   <div class="section">
     <p><strong><em>Fighting Styles Overhaul</em></strong></p>
-      <p><b>INSTALL NOTE:</b> if you choose to install component #122, the Weapon Proficiency Overhaul, then this component will also be installed automatically. </p>
       <p>This component rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  The benefits of each style are listed below:</p>
       <div class="kit_description">
         <p>Single-Weapon Style:<br />
@@ -231,20 +229,7 @@
     <p><strong><em>WPO: APR on Spec</em></strong></p>
       <p>This component enables any class to gain APR benefits from weapon specialization - not just warriors.</p>
       <p>(NB if you install component 122 without this one, only warriors will get the benefit of the APR bonus for basic proficiency.)</p>
-    <p><b>Compatibility:</b> this component is not compatible with the APR on Spec component of Tweaks Anthology (which I wrote, and is based on this one). The other version is specifically designed for the vanilla proficiency system; this one is specifically designed for the WPO proficiency system. Use If you installed the "WPO Part 2," use this version.</p>
-  </div>
-  <h4 class="subheader">Component 160: </h4>
-  <div class="section">
-    <p><strong><em>Saving Throw Overhaul (STO)</em></strong></p>
-    <p>This component changes all spells such that the saving throws they offer target follow these guidelines:<br />
-    <ul>
-      <li>Direct magical and mental effects like Charms and Illusions offer saves vs. Spells. This includes spells like Blindness and Confusion.</li>
-      <li>Area effects and physical that can be dodged offer saves vs. Breath Weapon. This includes spells like Fireball, Web, and Entangle.</li>
-      <li>Necromantic effects and those that affect the subject's life and health offer saves vs. Poison/Death. This includes all Necromancy effects (including vampire Level Drain), fog spells like Cloudkill, and all poisons.</li>
-      <li>Spells that affect the subject's physical form or movement offer saves vs. Petrification/Polymorph. This includes spells like Flesh to Stone and Polymorph Other, as well as Hold and Slow.</li>
-      <li>Saving throws vs. Rod/Staff/Wands are basically unused. (If you install psionics from Might & Guile, psionic powers will use saves vs. Wands.)</li>
-    </ul></p> 
-    <p>Additionally, saving throw tables are made more sensible.  No earth-shaking changes, just sensible progression: wizards save well against spells, priests save well against death, rogues save well against breath, and warriors save well against almost everything.</p>
+    <p><b>Compatibility:</b> this component is not compatible with the APR on Spec component of Tweaks Anthology (which I wrote, and is based on this one). The other version is specifically designed for the vanilla proficiency system; this one is specifically designed for the WPO proficiency system. If you installed the "WPO" component #10 of this mod, then use this version of APR on Spec.</p>
   </div>
 </div>
 <h2>Contact Information</h2>
