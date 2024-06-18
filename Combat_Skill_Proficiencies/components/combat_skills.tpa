@@ -4702,68 +4702,68 @@ ACTION_FOR_EACH text_file IN ~clastext~ ~sodcltxt~ ~bgclatxt~ BEGIN
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~IK_BATTLERAGER~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %ik_battlerager_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%ik_battlerager_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_ik_battlerager_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_ik_battlerager_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~c0tbm~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %c0tbm_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%c0tbm_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_c0tbm_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_c0tbm_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~UB_SH~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %ub_sh_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%ub_sh_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_ub_sh_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_ub_sh_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~A7_MARKSMAN~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %a7_marksman_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%a7_marksman_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_a7_marksman_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_a7_marksman_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~A7_BOWKNIGHT~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %a7_bowknight_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%a7_bowknight_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_a7_bowknight_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_a7_bowknight_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~A7_SHARPSHOOTER~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %a7_sharpshooter_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%a7_sharpshooter_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_a7_sharpshooter_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_a7_sharpshooter_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~CDArcSyl~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %cdarcsyl_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%cdarcsyl_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_cdarcsyl_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_cdarcsyl_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~c0aa~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %c0aa_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%c0aa_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_c0aa_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_c0aa_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~C0ADVENT~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %c0advent_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%c0advent_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_c0advent_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_c0advent_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~USAF00~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %usaf00_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%usaf00_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_usaf00_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_usaf00_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~USAP00~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %usap00_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%usap00_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_usap00_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_usap00_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~USAT00~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %usat00_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%usat00_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_usat00_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_usat00_desc%~)
         END
       END
       PATCH_IF (~%kit_name%~ STRING_EQUAL_CASE ~D2WARHOUND~) BEGIN
-        PATCH_IF (VARIABLE_IS_SET %d2warhound_desc%) BEGIN
-          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%d2warhound_desc%~)
+        PATCH_IF (VARIABLE_IS_SET %new_d2warhound_desc%) BEGIN
+          SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (~%new_d2warhound_desc%~)
         END
       END
     END
