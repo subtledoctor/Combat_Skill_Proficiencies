@@ -6218,5 +6218,17 @@ END	//	end if WPO extra NPC profs present
 
 //__________________________________________________________________________________
 
+// fix M_KITPRF.lua if dual-to-kit installed
+
+ACTION_IF (MOD_IS_INSTALLED ~Setup-DUAL_TO_KIT.tp2~ ~2~) AND (FILE_EXISTS_IN_GAME ~d5__profs.d5~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~M_kitprf.lua~) BEGIN
+    COPY_EXISTING ~M_kitprf.lua~ ~override~
+      REPLACE_TEXTUALLY ~\[0x4000\] = \{ 5, 5, 5,.*\},$~ ~[0x4000] = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7, 7, 7, 7, 7, 2, 7, 2, 2, 2, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, },~
+    BUT_ONLY
+  END
+END
+
+//__________________________________________________________________________________
+
 
 END // end function
