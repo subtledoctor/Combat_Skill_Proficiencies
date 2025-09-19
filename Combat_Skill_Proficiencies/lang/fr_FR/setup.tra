@@ -326,8 +326,8 @@ Chaque rang dans cette compétence permettra une tentative de pose de piège par
 ~
 @12209  = ~LANCER D'ARMES : jeter des armes sur les adversaires est, par nature, lent et malaisé, mais avec l'habitude, certains apprennent à lancer leurs armes avec précision et rapidité.
 
-0 point : -1 APR et pénalité de 3 points au jet d'attaque avec les armes de jet
-1 point : -1/2 APR et pénalité de 1 point au jet d'attaque avec les armes de jet
+0 point : pénalité de 5 points au jet d'attaque avec les armes de jet
+1 point : pénalité de 2 pointS au jet d'attaque avec les armes de jet
 2 points : bonus de 1 point au jet d'attaque avec les armes de jet
 ~
 @12215  = ~POSTURES DE COMBAT : chaque rang dans ce groupe de compétences permet au personnage de choisir une posture de combat parmi un certain nombre. Ces postures représentent des styles de combats et des tactiques qui donnent des bonus différents au personnage ou à ses alliés. Même si le personnage apprend plusieurs postures, une seule d'entre elles peut être utilisée à chaque instant donné. Un personnage qui a appris plusieurs postures peut basculer de l'une à l'autre à volonté. Les postures qui peuvent être choisies sont :

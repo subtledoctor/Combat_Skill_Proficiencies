@@ -9,7 +9,7 @@
 <body>
 <h1>SubtleMods: Combat Skills & Proficiencies</h1>
 <div class="section">
-  <p><strong> Version 1.4 </strong><br />
+  <p><strong> Version 1.5 </strong><br />
   <strong> Languages:</strong> English</p>
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">The Subtle Doctor</a></strong></p>
   <p><strong><a href="https://github.com/subtledoctor/Combat_Skill_Proficiencies">Home page</a></strong></p>
@@ -71,7 +71,7 @@
         <li> The <b>Dodge</b> skill grants a 1-point bonus to armor class with each rank. Most character may take two ranks in this proficiency; Swashbucklers get one rank for free and can take up to five more. (And this replaces Swashbucklers' automatic level-based AC bonus.) <b>Note:</b> this armor class bonus is <b>not</b> cumulative with any bonuses from using a shield - it is only applied when equipping a one-handed weapon, a two-handed weapon, or two weapons.</li>
         <li> The <b>Melee Training</b> skill grants a 1-point bonus to attack rolls with all melee weapons, regardless of proficiency, for each rank taken. Most characters can take up to two ranks in this proficiency; Swashbucklers get one rank for free and can take five more. (And this replaces Swashbucklers' automatic level-based bonuses.)</li>
         <li> The <b>Ranged Accuracy</b> skill grants a 1-point bonus to attack and damage rolls with ranged weapons, for each rank taken. Most characters can take up to two ranks in this proficiency; Archers get one rank for free and can take five more. (And this replaces Archers' automatic level-based bonuses.)</li>
-        <li>The <b>Thrown Weapons</b> skill makes a character more likely to successfully strike enemies with thrown weapons like daggers and axes. A baseline 3-point penalty to ranged attack rolls is applied to all such weapons; one rank in this proficiency reduces that to a -1 penalty, and a second rank results in a 1-point bonus. Halflings automatically begin the game with two ranks in this proficiency.</li>
+        <li> The <b>Thrown Weapons</b> skill makes a character more likely to successfully strike enemies with thrown weapons like daggers and axes. A baseline 5-point penalty to ranged attack rolls is applied to all such weapons; one rank in this proficiency reduces that to a -2 penalty, and a second rank results in a 1-point bonus. Halflings automatically begin the game with two ranks in this proficiency.</li>
       </ul>
     <p>Third, this component introduces four more groups of feats that characters can learn. Each of these is tied to a single proficiency; each point spent on that proficiency grants an innate spell which, when cast, allows the character to choose one feat via a dialogue. These groups of feats are:</p>
     <p><b>Combat Postures:</b> these abilities represent the style and approach a character uses in combat. These are exclusive to each other - a character can only use one posture at any given time. But characters can learn more than one posture, and switch between them as it is convenient. 
@@ -177,7 +177,7 @@
   <h4 class="subheader">Component 50: </h4>
   <div class="section">
     <p><strong><em>Weapon Category Grouping</em></strong></p>
-      <p><b>INSTALL NOTE:</b> if you choose to install component #122, the Weapon Proficiency Overhaul, then this component will also be installed automatically. </p>
+      <p><b>INSTALL NOTE:</b> if you choose to install component #10, the Weapon Proficiency Overhaul, then this component will also be installed automatically. </p>
       <p>This component groups certain proficiencies together:</p>
       <ul>
         <li> Longswords and bastard swords are combined into a single longswords proficiency.</li>

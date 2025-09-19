@@ -305,8 +305,8 @@ Each rank in this proficiency will allow one attempt per day to set a trap.
 ~
 @12209  = ~THROWN WEAPONS: Hurling weapons at adversaries is, by nature, a slow and clumsy act. But with practice, some can learn to hurl weapons with great accuracy and speed.
 
-0 points: -1 APR and -3 penalty to hit with thrown weapons
-1 point: -.5 APR and -1 penalty to hit with thrown weapons
+0 points: -5 penalty to hit with thrown weapons
+1 point: -2 penalty to hit with thrown weapons
 2 points: +1 bonus to hit with thrown weapons
 ~
 @12215  = ~FIGHTING POSTURES: Each rank in this proficiency group allows the character to learn one of several fighting postures. These postures amount to particular combat styles and tactics, giving discrete bonuses to the character or <PRO_HISHER> allies. Even if the character has learned several fighting postures, only one can be employed at any given moment. A character who has learned more than one fighting posture can switch between them at will. The list of postures to choose from includes:

@@ -1831,14 +1831,14 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs108f.spl~
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs109a.spl~		//			hurled thac0
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109A~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109D~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109D~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cs109a~ END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs109a~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs109b.spl~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109B~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109E~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109E~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cs109b~ END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs109b~ END
 
@@ -1853,9 +1853,9 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs109c.spl~
 CREATE EFF ~d5cz109a~
 	WRITE_LONG 0x10 167
 	WRITE_LONG 0x14 1
-	WRITE_LONG 0x1c (0 - 2)
+	WRITE_LONG 0x1c (0 - 3)
 	WRITE_LONG 0x20 0
-	WRITE_LONG 0x24 2
+	WRITE_LONG 0x24 3
 	WRITE_LONG 0x28 0
 	WRITE_SHORT 0x2c 100
 	WRITE_LONG 0x90 1
@@ -1870,6 +1870,7 @@ CREATE EFF ~d5cz109b~
 	WRITE_SHORT 0x2c 100
 	WRITE_LONG 0x90 1
 	WRITE_EVALUATED_ASCII 0x94 ~D5CZ109B~ #8
+/*
 CREATE EFF ~d5cz109c~
 	WRITE_LONG 0x10 167
 	WRITE_LONG 0x14 1
@@ -1900,6 +1901,7 @@ CREATE EFF ~d5cz109e~
 	WRITE_SHORT 0x2c 100
 	WRITE_LONG 0x90 1
 	WRITE_EVALUATED_ASCII 0x94 ~D5CZ109E~ #8
+*/
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   SET thrown_weap = 0
@@ -1919,8 +1921,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
     LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109a~ END
     LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109b~ END
 //    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109c~ END
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109d~ END
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109e~ END
+//    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109d~ END
+//    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109e~ END
   END
 BUT_ONLY
 
