@@ -2575,21 +2575,21 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csf1.spl~				//			health conditi
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csf2.spl~				//			toughness
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 86 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 87 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 88 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 89 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 86 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 87 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 88 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 89 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5csf2~ END
 
 //__________________________________________________________________________________
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csf3.spl~				//			resistance
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 28 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 29 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 30 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 84 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 85 target = 1 parameter1 = 10 parameter2 = 0 timing = 0 duration = 126144000 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 28 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 29 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 30 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 84 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 85 target = 1 parameter1 = 10 parameter2 = 0 timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5csf3~ END
 
 //__________________________________________________________________________________
@@ -6025,7 +6025,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
 
   COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
     PATCH_FOR_EACH focus_effect IN ~BS89~ ~BS90~ ~BS91~ ~BS92~ ~BS93~ ~BS94~ ~BS95~ ~BS96~ ~BS97~ ~BS98~ ~BS99~ ~BS100~ ~BS101~ ~BS102~ ~BS115~ BEGIN
-      LPF DELETE_EFFECT INT_VAR match_opcode = 177 match_paramater1 = %nu_bladesinger_code% match_parameter2 = 9 STR_VAR match_resource = EVAL ~d5%focus_effect%b~ END
+      LPF DELETE_EFFECT INT_VAR match_opcode = 177 match_parameter1 = %nu_bladesinger_code% match_parameter2 = 9 STR_VAR match_resource = EVAL ~d5%focus_effect%b~ END
     END
   BUT_ONLY
 
